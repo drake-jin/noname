@@ -30,7 +30,7 @@
     "start:dev": "lerna run start:dev --include-dependencies"
   },
   "dependencies": {
-    "api": "file:packages/api",
-    "client": "file:packages/client"
+    "@noname/api": "file:packages/api",
+    "@noname/web": "file:packages/web"
   }
 }
