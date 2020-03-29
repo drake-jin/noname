@@ -4,6 +4,11 @@
   "packages": [
     "packages/*"
   ],
+  "bootstrap": {
+    "npmClientArgs": [
+      "--frozen-lockfile"
+    ]
+  },
   "dependencies": {
     "web": "file:packages/web",
     "api": "file:packages/api"
