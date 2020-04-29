@@ -1,10 +1,11 @@
 import oc from 'open-color'
 
+const CONTAINER_SIZE ='64rem'
 
 const MEDIA_MOBILE = '768px'
 
 const BASIC_FONT_COLOR = oc.gray[8]
-const BASIC_BORDER_COLOR = oc.gray[3]
+const BASIC_BORDER_COLOR = oc.gray[4]
 const BASIC_GRAY_BACKGROUND_COLOR = oc.gray[2]
 
 const HEADER_Z_INDEX = 1000
@@ -18,5 +19,7 @@ export default {
   BASIC_GRAY_BACKGROUND_COLOR,
 
   HEADER_Z_INDEX,
-  HEADER_HEIGHT
+  HEADER_HEIGHT,
+
+  CONTAINER_SIZE
 }

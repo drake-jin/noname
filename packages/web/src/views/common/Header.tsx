@@ -13,7 +13,7 @@ const HeaderWrapper = styled.nav`
   height: ${contextStyled.HEADER_HEIGHT};
   width: 100%;
   border-bottom: 1px solid ${contextStyled.BASIC_BORDER_COLOR};
-
+  background-color: ${oc.white};
   z-index: ${contextStyled.HEADER_Z_INDEX};
   position: fixed;
   top: 0;
