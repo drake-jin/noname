@@ -14,3 +14,10 @@ localhost:4000
 ```
 npm install -g @nestjs/cli leran
 ```
+
+# lerna cheatsheet
+
+#### add dependnecies to specific repository
+```
+lerna add react-google-button --scope=@noname/web
+```

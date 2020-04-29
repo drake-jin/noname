@@ -1,10 +1,12 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import oc from 'open-color'
 import { MdClose } from "react-icons/md";
 import { GiPodium } from "react-icons/gi";
 import { TiMessages } from "react-icons/ti";
 import contextStyled from '../../lib/context/style'
+import routes from 'lib/context/routes';
 
 const HeaderWrapper = styled.nav`
   display: flex
@@ -140,7 +142,9 @@ export default () => {
             <TiMessages />
           </MenuItem>
           <MenuItem>
-            로그인
+            <Link to={routes.PATH_LOGIN}>
+              로그인
+            </Link>
           </MenuItem>
         </Menu>
       </HeaderContainer>
