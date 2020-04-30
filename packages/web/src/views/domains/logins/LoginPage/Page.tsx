@@ -7,14 +7,23 @@ import styled from 'styled-components'
 import contextStyle from 'lib/context/style'
 import oc from 'open-color'
 
-import GoogleSigninSVG from 'assets/google_signin_button/web/vector/btn_google_dark_normal_ios.svg'
-
 const Page = styled.main`
   margin: 0px;
   padding: 0px;
 
   width: 100%;
   height: 100%;
+
+  display: flex;
+  align-items: center;
+`
+
+const PageWrapper = styled.div`
+  margin-left: auto;
+  margin-right: auto;
+
+  width: 100%;
+  max-width: ${contextStyle.WIDTH_CONTAINER_SIZE};
 
   display: flex;
   justify-content: center;
@@ -25,19 +34,33 @@ const Page = styled.main`
 
 const Content = styled.div`
   width: 100%;
-  max-width: 30rem;
-  height: 20rem;
+  display: flex;
+  flex-direction: row;
+
+  margin-bottom: 2rem;
+`
+
+const IntroducePanel = styled.div`
+  display: flex;
+
+  flex: 3;
+
+`
+
+const LoginPanel = styled.div`
+  display: flex;
+  flex: 2;
+
+  flex-direction: column;
+  height: 23em;
   border: 1px solid ${oc.gray[4]};
 
   background-color: ${oc.white};
 `
 
-const Footer = styled.div`
-  height: 10rem;
-`
-
 const Brand = styled.div`
   margin-top: 1rem;
+  margin-bottom: 2rem;
   text-align: center;
   font-size: 3rem;
 `
@@ -72,9 +95,14 @@ const RememberMe = styled.div`
   text-align: right;
 `
 
-const RememberMeLabel= styled.label`
+const RememberMeLabel = styled.label`
   font-weight: 600;
 `
+
+const Footer = styled.div`
+  width: 100%;
+`
+
 
 const onClick = () => {
   window.location.href = "/"
@@ -94,32 +122,42 @@ export default () => {
 
   return (
     <Page>
-      <Content>
-        <Brand>noname</Brand>
-        <BrandCopyWrite>
-          To make friends that's the way to change the world
-        </BrandCopyWrite>
-        <LoginButtons>
-          <GoogleLoginButton onClick={onClick} >
-            Google
-          </GoogleLoginButton>
-          <FacebookLoginButton onClick={onClick} >
-            Facebook
-          </FacebookLoginButton>
-          <GithubLoginButton onClick={onClick} >
-            Github
-          </GithubLoginButton>
-        </LoginButtons>
-        <RememberMe>
-          <RememberMeLabel id="remember-me">
-            Remember me&nbsp;
-            <input type="checkbox" value="true" />
-          </RememberMeLabel>
-        </RememberMe>
-      </Content>
-      <Footer>
-        뀨뀨뀨
-      </Footer>
+      <PageWrapper>
+        <Content>
+          <IntroducePanel>
+            소개
+          </IntroducePanel>
+          <LoginPanel>
+            <Brand>noname</Brand>
+            <BrandCopyWrite>
+              To make friends that's the way to change the world
+            </BrandCopyWrite>
+            <LoginButtons>
+              <GoogleLoginButton onClick={onClick} >
+                Google
+              </GoogleLoginButton>
+              <FacebookLoginButton onClick={onClick} >
+                Facebook
+              </FacebookLoginButton>
+              <GithubLoginButton onClick={onClick} >
+                Github
+              </GithubLoginButton>
+            </LoginButtons>
+            <RememberMe>
+              <RememberMeLabel id="remember-me">
+                Remember me&nbsp;
+                <input type="checkbox" value="true" />
+              </RememberMeLabel>
+            </RememberMe>
+          </LoginPanel>
+        </Content>
+        <Footer>
+          모두의마블! 모두의~! 모두의마블! 모두의~! 모두의마블! 모두의~! 모두의마블! 모두의~! 모두의마블! 모두의~!
+          모두의마블! 모두의~! 모두의마블! 모두의~! 모두의마블! 모두의~! 모두의마블! 모두의~! 모두의마블! 모두의~!
+          모두의마블! 모두의~! 모두의마블! 모두의~! 모두의마블! 모두의~! 모두의마블! 모두의~! 모두의마블! 모두의~!
+          모두의마블! 모두의~! 모두의마블! 모두의~! 모두의마블! 모두의~! 모두의마블! 모두의~! 모두의마블! 모두의~!
+        </Footer>
+      </PageWrapper>
     </Page>
   )
 }

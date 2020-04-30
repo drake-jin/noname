@@ -23,14 +23,14 @@ const Content = styled.div`
   padding-top: 2rem;
   position: relative;
 
-  max-width: ${contextStyled.CONTAINER_SIZE};
+  max-width: ${contextStyled.WIDTH_CONTAINER_SIZE};
   margin-left: auto;
   margin-right: auto;
 `
 
 const CardList = styled.div`
   display: inline-block;
-  width: 41rem;
+  width: ${contextStyled.WIDTH_CONTENT_SIZE};
   margin-right: 2rem;
 `
 

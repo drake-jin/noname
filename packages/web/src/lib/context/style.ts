@@ -1,6 +1,7 @@
 import oc from 'open-color'
 
-const CONTAINER_SIZE ='64rem'
+const WIDTH_CONTAINER_SIZE = '58rem'
+const WIDTH_CONTENT_SIZE = '36rem'
 
 const MEDIA_MOBILE = '768px'
 
@@ -21,5 +22,6 @@ export default {
   HEADER_Z_INDEX,
   HEADER_HEIGHT,
 
-  CONTAINER_SIZE
+  WIDTH_CONTAINER_SIZE,
+  WIDTH_CONTENT_SIZE,
 }

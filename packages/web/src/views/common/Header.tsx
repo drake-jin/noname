@@ -31,7 +31,7 @@ const HeaderContainer = styled.div`
 
   height: ${contextStyled.HEADER_HEIGHT};
   width: calc(100% - 2rem);
-  max-width: 64rem;
+  max-width: ${contextStyled.WIDTH_CONTAINER_SIZE};
 `
 
 const Brand = styled.div`
