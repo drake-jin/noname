@@ -21,3 +21,9 @@ npm install -g @nestjs/cli leran
 ```
 lerna add react-google-button --scope=@noname/web
 ```
+
+#### To do with yarn
+
+```
+lerna run test:watch --scope @noname/api
+```
