@@ -1,10 +1,16 @@
 import React, { useEffect } from 'react'
+import { Route } from 'react-router-dom'
+
 import { FacebookLoginButton, GoogleLoginButton, GithubLoginButton } from 'react-social-login-buttons'
 import styled from 'styled-components'
 import oc from 'open-color'
+import axios from 'axios'
+
+import WaitingModal from './Waiting'
 
 import contextStyle from 'lib/context/style'
 import contextWindow from 'lib/context/window'
+import contextRoutes from 'lib/context/routes'
 
 const Page = styled.main`
   margin: 0px;
@@ -105,7 +111,13 @@ const Footer = styled.div`
 
 const onClick = (provider: string) => {
   const { REACT_APP_API_SERVER_HOST } = process.env
-  contextWindow.location.href = `${REACT_APP_API_SERVER_HOST}/auth/sso/${provider}`
+
+  axios.get(`${REACT_APP_API_SERVER_HOST}/auth/sso/${provider}`)
+    .then(({ data }) => {
+      console.log(data)
+      contextWindow.location.href = data
+    })
+
 }
 
 
@@ -118,11 +130,11 @@ export default () => {
       window.document.body.style.backgroundColor = ''
     }
   })
-
   return (
     <Page>
       <PageWrapper>
         <Content>
+          <Route path={`${contextRoutes.PATH_LOGIN_WAITING}/:provider`} component={WaitingModal} />
           <IntroducePanel>
             소개
           </IntroducePanel>

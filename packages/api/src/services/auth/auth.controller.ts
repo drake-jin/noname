@@ -1,27 +1,17 @@
 import {
   Controller,
   Get,
+  Post,
   Param,
+  Body,
+  Req,
 
   BadRequestException,
 } from '@nestjs/common';
+import { Request } from 'express';
 
 import AuthService from './auth.service'
-
-// const CLIENT_ID = "989783283769-arbj3rnjo09k820djnihrh8pgv89bd5o.apps.googleusercontent.com";
-// const AUTHORIZE_URI = "https://accounts.google.com/o/oauth2/v2/auth";
-
-// const queryString = qs.stringify({
-//   client_id: CLIENT_ID,
-//   redirect_uri: window.location.href,
-//   response_type: "code",
-//   scope: "https://www.googleapis.com/auth/userinfo.email",
-//   approval_prompt: "force",
-//   access_type: "offline"
-// });
-
-// contextWindow.location.href = `${AUTHORIZE_URI}?${queryString}`
-
+import { SSOTokenDTO } from './auth.dto'
 
 @Controller('/auth')
 export default class AuthController {
@@ -34,6 +24,19 @@ export default class AuthController {
     const providers = ['google', 'github', 'facebook']
     if (providers.includes(provider)) {
       return this.authService.getRedirectURL(provider);
+    }
+    throw new BadRequestException()
+  }
+
+  @Post("sso/:provider")
+  postProvider(
+    @Param('provider') provider: string,
+    @Body() dto: SSOTokenDTO,
+    @Req() req: Request,
+  ): Promise<void> {
+    const providers = ['google', 'github', 'facebook']
+    if (providers.includes(provider)) {
+      return this.authService.isSigned(provider, dto, req);
     }
     throw new BadRequestException()
   }

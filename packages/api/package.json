@@ -23,14 +23,19 @@
   "dependencies": {
     "@nestjs/common": "^7.0.0",
     "@nestjs/core": "^7.0.0",
+    "@nestjs/jwt": "^7.0.0",
     "@nestjs/platform-express": "^7.0.0",
     "@types/node": "^13.13.4",
     "@types/query-string": "^6.3.0",
+    "@types/ua-parser-js": "^0.7.33",
+    "class-transformer": "^0.2.3",
+    "class-validator": "^0.12.2",
     "lodash": "^4.17.15",
     "query-string": "^6.12.1",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
-    "rxjs": "^6.5.4"
+    "rxjs": "^6.5.4",
+    "ua-parser-js": "^0.7.21"
   },
   "devDependencies": {
     "@nestjs/cli": "^7.0.0",

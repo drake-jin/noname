@@ -1,8 +1,8 @@
-import { Module } from '@nestjs/common';
+import { Module, MiddlewareConsumer, NestModule } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import ServicesModule from '~/services/module'
-
+import { DetectUserAgentMiddleware } from './app.middleware'
 
 @Module({
   imports: [
@@ -11,4 +11,8 @@ import ServicesModule from '~/services/module'
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule { }
+export class AppModule implements NestModule {
+  configure(consumer: MiddlewareConsumer) {
+    consumer.apply(DetectUserAgentMiddleware).forRoutes('/');
+  }
+}

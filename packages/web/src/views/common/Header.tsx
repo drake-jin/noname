@@ -6,7 +6,7 @@ import { MdClose } from "react-icons/md";
 import { GiPodium } from "react-icons/gi";
 import { TiMessages } from "react-icons/ti";
 import contextStyled from '../../lib/context/style'
-import routes from 'lib/context/routes';
+import contextRoutes from 'lib/context/routes';
 
 const HeaderWrapper = styled.nav`
   display: flex
@@ -16,7 +16,7 @@ const HeaderWrapper = styled.nav`
   width: 100%;
   border-bottom: 1px solid ${contextStyled.BASIC_BORDER_COLOR};
   background-color: ${oc.white};
-  z-index: ${contextStyled.HEADER_Z_INDEX};
+  z-index: ${contextStyled.Z_INDEX_HEADER};
   position: fixed;
   top: 0;
 `
@@ -142,7 +142,7 @@ export default () => {
             <TiMessages />
           </MenuItem>
           <MenuItem>
-            <Link to={routes.PATH_LOGIN}>
+            <Link to={contextRoutes.PATH_LOGIN}>
               로그인
             </Link>
           </MenuItem>
