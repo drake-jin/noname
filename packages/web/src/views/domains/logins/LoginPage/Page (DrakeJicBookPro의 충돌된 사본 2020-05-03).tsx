@@ -2,9 +2,12 @@ import React, { useEffect } from 'react'
 import { FacebookLoginButton, GoogleLoginButton, GithubLoginButton } from 'react-social-login-buttons'
 import styled from 'styled-components'
 import oc from 'open-color'
+import axios from 'axios'
 
 import contextStyle from 'lib/context/style'
 import contextWindow from 'lib/context/window'
+
+
 
 const Page = styled.main`
   margin: 0px;
@@ -105,7 +108,14 @@ const Footer = styled.div`
 
 const onClick = (provider: string) => {
   const { REACT_APP_API_SERVER_HOST } = process.env
-  contextWindow.location.href = `${REACT_APP_API_SERVER_HOST}/auth/sso/${provider}`
+  const providers = ['google', 'facebook', 'github']
+  if (providers.includes(provider)) {
+    axios
+      .get(`${REACT_APP_API_SERVER_HOST}/auth/sso/${provider}`)
+      .then(({ data }) => {
+        contextWindow.location.href = data
+      })
+  }
 }
 
 
