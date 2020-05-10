@@ -12,7 +12,6 @@ export enum enumLastUpdatedFrom {
   DBMS = 3,
 }
 
-
 export default abstract class BaseEntity {
   @PrimaryGeneratedColumn('uuid')
   uuid: string;
@@ -43,6 +42,7 @@ export default abstract class BaseEntity {
 
   @Column({
     type: 'enum',
+    name: 'last_updated_from',
     enum: enumLastUpdatedFrom,
     default: enumLastUpdatedFrom.SERVICE,
     nullable: true,
