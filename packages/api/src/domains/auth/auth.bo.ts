@@ -8,27 +8,22 @@ import {
 import { Facebook, FacebookException } from 'fb';
 import { google } from 'googleapis'
 
-const {
-  GOOGLE_CLIENT_ID,
-  GOOGLE_CLIENT_SECRET,
-  CLIENT_SERVER_HOST,
-
-  FACEBOOK_CLIENT_ID,
-  FACEBOOK_CLIENT_SECRET,
-} = process.env
+import googleConfig from '~/config/google'
+import facebookConfig from '~/config/facebook'
+import * as env from '~/lib/env'
 
 @Injectable()
 export default class AuthBO {
   private oauth2Client = new google.auth.OAuth2(
-    GOOGLE_CLIENT_ID,
-    GOOGLE_CLIENT_SECRET,
-    `${CLIENT_SERVER_HOST}/logins/waiting/google`,
+    googleConfig.client_id,
+    googleConfig.client_secret,
+    `${env.getEnv('CLIENT_SERVER_HOST')}/logins/waiting/google`,
   );
 
   private fb = new Facebook({
-    appId: FACEBOOK_CLIENT_ID,
-    appSecret: FACEBOOK_CLIENT_SECRET,
-    redirectUri: `${CLIENT_SERVER_HOST}/logins/waiting/facebook`,
+    appId: facebookConfig.client_id,
+    appSecret: facebookConfig.client_secret,
+    redirectUri: `${env.getEnv('CLIENT_SERVER_HOST')}/logins/waiting/facebook`,
   })
 
   constructor(

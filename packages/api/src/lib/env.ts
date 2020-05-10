@@ -1,11 +1,30 @@
 export const envSchema = {
   common: [
     'NODE_ENV',
+
+    'CLIENT_SERVER_HOST',
+
     'GOOGLE_CLIENT_ID',
     'GOOGLE_CLIENT_SECRET',
-    'GOOGLE_OAUTH_API_SERVER',
-    'CLIENT_SERVER_HOST',
+
+    'FACEBOOK_CLIENT_ID',
+    'FACEBOOK_CLIENT_SECRET',
+
+    'DB_TYPE',
+    'DB_HOST',
+    'DB_PORT',
+    'DB_DATABASE',
+    'DB_LOGGER',
+    'DB_USERNAME',
+    'DB_PASSWORD',
+
+    'REDIS_HOST',
+    'REDIS_PORT',
+
+    'ES_HOST',
+    'ES_PORT',
   ],
+
   development: [],
   production: [],
 } as const;
