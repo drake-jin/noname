@@ -82,7 +82,7 @@ const LoginButtons = styled.div`
   margin-right: auto;
   width: 20rem;
 
-  margin-bottom: 1rem;
+  margin-bottom: 4rem;
   & > button {
     margin-bottom: 0.5rem !important;
   }
@@ -150,9 +150,6 @@ export default () => {
               <FacebookLoginButton onClick={() => onClick("facebook")} >
                 Facebook
               </FacebookLoginButton>
-              <GithubLoginButton onClick={() => onClick("github")} >
-                Github
-              </GithubLoginButton>
             </LoginButtons>
             <RememberMe>
               <RememberMeLabel id="remember-me">
