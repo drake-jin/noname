@@ -5,13 +5,20 @@ services:
     container_name: noname-pg-12
     image: postgres:12.2-alpine
     ports:
-      - 25432:5432
+      - ${DB_PORT}:5432
+
+  redis:
+    image: redis:6.0.1
+    container_name: noname-redis
+    command: redis-server --appendonly yes
+    ports:
+      - ${REDIS_PORT}:6379
 
   elasticsearch:
     container_name: noname-elasticsearch-762
     image: elasticsearch:7.6.2
     ports:
-      - 29200:9200
+      - ${ES_PORT}:9200
 
   kibana:
     container_name: noname-kibana-762
