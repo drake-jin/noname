@@ -1,4 +1,4 @@
-import { UserAgentDTO } from '~/services/auth/auth.dto';
+import { UserAgentDTO } from '~/domains/auth/auth.dto';
 
 declare global {
   namespace Express {

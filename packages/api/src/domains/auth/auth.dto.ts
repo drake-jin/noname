@@ -1,6 +1,6 @@
 import { Type } from 'class-transformer';
 
-export class SSOTokenDTO {
+export class TokenDTO {
   @Type(() => String)
   authuser: string;
 

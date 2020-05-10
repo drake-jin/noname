@@ -8,10 +8,9 @@ import {
 
   BadRequestException,
 } from '@nestjs/common';
-import { Request } from 'express';
 
 import AuthService from './auth.service'
-import { SSOTokenDTO } from './auth.dto'
+import { TokenDTO } from './auth.dto'
 
 @Controller('/auth')
 export default class AuthController {
@@ -28,15 +27,23 @@ export default class AuthController {
     throw new BadRequestException()
   }
 
+  //   @Post("sso/:provider")
+  //   postProvider(
+  //     @Param('provider') provider: string,
+  //     @Body() do: TokenDTO,
+  //   @Req() req: Request,
+  //   ): Promise<void> {
+  //   const providers = ['google', 'github', 'facebook']
+  //     if(providers.includes(provider)) {
+  //   return this.authService.isSigned(provider, do, req);
+  // }
+  // throw new BadRequestException()
+  //   }
   @Post("sso/:provider")
-  postProvider(
-    @Param('provider') provider: string,
-    @Body() dto: SSOTokenDTO,
-    @Req() req: Request,
-  ): Promise<void> {
+  postProvider(@Param('provider') provider: string, @Body() dto: TokenDTO): Promise<void> {
     const providers = ['google', 'github', 'facebook']
     if (providers.includes(provider)) {
-      return this.authService.isSigned(provider, dto, req);
+      return this.authService.isSigned(provider, dto)
     }
     throw new BadRequestException()
   }

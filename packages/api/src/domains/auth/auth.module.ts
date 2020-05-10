@@ -2,6 +2,7 @@ import { Module, HttpModule } from '@nestjs/common';
 
 import AuthController from './auth.controller'
 import AuthService from './auth.service'
+import AuthBO from './auth.bo'
 import { JwtModule } from '@nestjs/jwt'
 
 
@@ -11,7 +12,7 @@ import { JwtModule } from '@nestjs/jwt'
     JwtModule.register({ secret: '' }),
   ],
   controllers: [AuthController],
-  providers: [AuthService],
+  providers: [AuthService, AuthBO],
   exports: [AuthService],
 })
 export default class AuthModule { }

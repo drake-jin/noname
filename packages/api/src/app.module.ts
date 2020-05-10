@@ -1,7 +1,7 @@
 import { Module, MiddlewareConsumer, NestModule } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import ServicesModule from '~/services/module'
+import ServicesModule from '~/domains/module'
 import { DetectUserAgentMiddleware } from './app.middleware'
 
 @Module({

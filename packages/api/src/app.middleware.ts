@@ -5,7 +5,7 @@ import {
   BadRequestException,
 } from '@nestjs/common';
 import { UAParser } from 'ua-parser-js'
-import { UserAgentDTO } from '~/services/auth/auth.dto'
+import { UserAgentDTO } from '~/domains/auth/auth.dto'
 
 import { Request, Response } from 'express';
 
@@ -15,7 +15,6 @@ const parser = new UAParser()
 export class DetectUserAgentMiddleware implements NestMiddleware {
   async use(req: Request, _: Response, next: Function) {
     const userAgent = req.headers['user-agent']
-    console.log('hello')
     if (req.headers['user-agent']) {
       parser.setUA(userAgent)
       const agent: UserAgentDTO = {
