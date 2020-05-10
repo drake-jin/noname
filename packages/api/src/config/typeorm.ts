@@ -9,7 +9,7 @@ const config: ConnectionOptions = {
   username: getEnv('DB_USERNAME'),
   password: getEnv('DB_PASSWORD'),
   database: getEnv('DB_DATABASE'),
-  entities: ['dist/**/*.entity{.ts,.js}'],
+  entities: ['dist/entities/*.entity{.ts,.js}'],
   synchronize: false,
   migrationsRun: false,
   logging: getEnv('NODE_ENV') === 'development',

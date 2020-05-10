@@ -1,12 +1,16 @@
 import { Module, MiddlewareConsumer, NestModule } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import ServicesModule from '~/domains/module'
+import DomainsModule from '~/domains/module'
 import { DetectUserAgentMiddleware } from './app.middleware'
+
+import { TypeOrmModule } from '@nestjs/typeorm';
+import typeromConfig from './config/typeorm';
 
 @Module({
   imports: [
-    ServicesModule,
+    TypeOrmModule.forRoot(typeromConfig),
+    DomainsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

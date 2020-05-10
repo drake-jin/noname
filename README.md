@@ -12,7 +12,7 @@ localhost:4000
 - node 12.16.1
 
 ```
-npm install -g @nestjs/cli leran
+npm install -g @nestjs/cli lerna ts-node yarn
 ```
 
 # lerna cheatsheet

@@ -2,26 +2,28 @@ version: '3.7'
 
 services:
   pg:
-    container_name: noname-pg-12
+    container_name: noname-pg
+    environment:
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
     image: postgres:12.2-alpine
     ports:
       - ${DB_PORT}:5432
 
   redis:
-    image: redis:6.0.1
     container_name: noname-redis
+    image: redis:6.0.1
     command: redis-server --appendonly yes
     ports:
       - ${REDIS_PORT}:6379
 
   elasticsearch:
-    container_name: noname-elasticsearch-762
+    container_name: noname-elasticsearch
     image: elasticsearch:7.6.2
     ports:
       - ${ES_PORT}:9200
 
   kibana:
-    container_name: noname-kibana-762
+    container_name: noname-kibana
     image: kibana:7.6.2
     environment:
       ELASTICSEARCH_HOSTS: http://elasticsearch:9200
