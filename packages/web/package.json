@@ -16,7 +16,7 @@
     "@types/react-icons": "^3.0.0",
     "@types/react-router-dom": "^5.1.3",
     "@types/styled-components": "^5.0.1",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "lodash": "^4.17.15",
     "open-color": "^1.7.0",
     "query-string": "^6.12.1",
